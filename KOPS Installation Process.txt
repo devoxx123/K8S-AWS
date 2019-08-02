@@ -217,6 +217,8 @@ kubectl get all -n monitoring
 kubectl edit -n monitoring service/monitoring-grafana
 
 
+Basic Ngnix Deployement on Kubernates
+--------------------------------------
 
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
@@ -237,4 +239,9 @@ spec:
         image: nginx:1.7.9
         ports:
         - containerPort: 80
+
+
+Google reference Link------https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
+Youtube reference Link---- https://www.youtube.com/watch?v=Jn3PMClvUh0
+
 
