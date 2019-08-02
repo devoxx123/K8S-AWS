@@ -13,26 +13,20 @@ sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
 sudo yum install -y apache-maven
 mvn --version
 
-
 sudo chown -R -v ec2-user /var/lib/jenkins/.m2/repository/com/oracle/ojdbc14/10.2.0.3.0(Change permission in winscp jar file)
-
 
 /var/lib/jenkins/workspace/sampleJob/pom.xml
 
 Git
 ------
-
 sudo yum install git
 which git
 whereis git
-
-
 
 Tomcat
 -----------
 
 sudo yum install tomcat8 tomcat8-webapps tomcat8-admin-webapps tomcat8-docs-webapp
-
 
 cd  /usr/share/tomcat8
 
@@ -40,31 +34,38 @@ vim /usr/share/tomcat8/conf/tomcat-users.xml
 
 sudo service tomcat8 start
 
-
-
 Docker
 -----------
-
 sudo yum -y update
-sudo yum install -y docker
-docker --version
-docker info
-sudo service docker restart
-sudo service docker start
-sudo service docker stop
-sudo docker info
-sudo usermod -a -G docker ec2-user
-docker images
-docker ps
-docker ps -a
-sudo yum remove docker
-docker rm $(docker ps -a -f status=exited -q)
 
+sudo yum install -y docker
+
+docker --version
+
+docker info
+
+sudo service docker start/restart/stop
+
+sudo docker info
+
+sudo usermod -a -G docker ec2-user
+
+docker images
+
+docker ps
+
+docker ps -a
+
+sudo yum remove docker
+
+docker rm $(docker ps -a -f status=exited -q)
 
 Jenkins
 -----------
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
 sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
 sudo yum install jenkins
 
 sudo service jenkins start/stop/restart
@@ -74,21 +75,9 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 SonarQube Installation
 ----------------------
-
 sudo wget -O /etc/yum.repos.d/sonar.repo http://downloads.sourceforge.net/project/sonar-pkg/rpm/sonar.repo
 
 sudo yum install sonar
-
-
-SOnatype nexus Repository Installation
-----------------------------------------
-
-
-
-
-
-
-
 
 newman and npm installation
 -----------------------------
@@ -98,9 +87,7 @@ sudo yum -y install nodejs
 
 sudo npm install newman --global;
 
-
 newman run /var/lib/jenkins/workspace/Jhome-Employee/EMPLOYEE-SAMPLE/api-tests/employee.postman_collection.json
-
 
 sudo yum remove java-1.8.0
 
