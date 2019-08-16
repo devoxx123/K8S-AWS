@@ -5,6 +5,8 @@ sudo update-alternatives --config java
 java -version
 javac -version
 
+Change JRE to JDK process reference link---- https://dzone.com/articles/installing-java-8-on-aws-ec2-amazon-linux-instance
+
 Maven
 ----------
 
