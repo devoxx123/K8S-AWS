@@ -8,6 +8,21 @@ javac -version
 Change JRE to JDK process reference link---- https://dzone.com/articles/installing-java-8-on-aws-ec2-amazon-linux-instance
 java installation video---- https://www.youtube.com/watch?v=tAiYD6xFLU0
 
+sudo mv jdk-8u221-linux-x64.tar.gz?AuthParam=1567748202_ff9114aee2dda1554aa5c7564d431cd3 jdk-8u221-linux-x64.tar.gz
+sudo tar -zxvf jdk-8u221-linux-x64.tar.gz
+sudo alternatives --install /usr/bin/java java /opt/jdk1.8.0_221/bin/java 2
+sudo alternatives --config java
+sudo alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_221/bin/jar 2
+sudo alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_221/bin/javac 2
+sudo alternatives --set jar /opt/jdk1.8.0_221/bin/jar
+sudo alternatives --set javac /opt/jdk1.8.0_221/bin/javac
+
+export JAVA_HOME=/opt/jdk1.8.0_221
+export JRE_HOME=/opt/jdk1.8.0_221/jre
+export PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+
+echo $JAVA_HOME
+
 Maven
 ----------
 
@@ -62,6 +77,12 @@ docker ps -a
 sudo yum remove docker
 
 docker rm $(docker ps -a -f status=exited -q)
+
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version
 
 Jenkins
 -----------
