@@ -1,0 +1,43 @@
+
+
+Nexus Repo Installation
+------------------------
+
+sudo wget https://sonatype-download.global.ssl.fastly.net/repository/repositoryManager/3/nexus-3.18.1-01-unix.tar.gz
+
+sudo tar -xf nexus-3.18.1-01-unix.tar.gz
+
+sudo mv nexus-3.18.1-01/ nexus3  -Rename of Nexus3
+
+sudo chown -R ec2-user:ec2-user nexus3/ sonatype-work
+
+sudo yum list | grep java-1.8.0
+
+vim nexus.rc --> run_as_user="ec2-user"
+
+sudo ln -s /opt/nexus3/bin/nexus  /etc/init.d/nexus
+
+cd /etc/init.d
+
+sudo chkconfig --add nexus
+
+sudo chkconfig nexus on
+
+sudo service nexus start/stop/restart
+
+Maven Installation
+
+sudo yum list | grep java-1.8.0
+
+sudo yum install java-1.8.0-openjdk-devel
+
+sudo wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+
+sudo tar -xvf apache-maven-3.6.2-bin.tar.gz
+
+sudo mv apache-maven-3.6.2/ maven3  --Rename Maven
+
+sudo chown -R ec2-user:ec2-user maven3  --Change Permissions
+
+vim ~/.bashrc  --add maven path
+
