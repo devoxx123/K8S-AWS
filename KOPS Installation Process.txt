@@ -138,8 +138,8 @@ after login pod search for mysql credentials echo ${MYSQL_ROOT_PASSWORD/MYSQL_US
 >select * from <table name>;
 
 
-ConfigMap & Secrets 
--------------------
+ConfigMap & Secrets cmds
+------------------------
 kubectl get cm/secrets
  
 kubectl describe cm/secret <NAME>
