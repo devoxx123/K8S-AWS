@@ -138,6 +138,26 @@ after login pod search for mysql credentials echo ${MYSQL_ROOT_PASSWORD/MYSQL_US
 >select * from <table name>;
 
 
+ConfigMap & Secrets 
+-------------------
+kubectl get cm/secrets
+ 
+kubectl describe cm/secret <NAME>
+ 
+kubectl get cm/secrets <NAME> -o yaml
+ 
+kubectl edit cm/secrets <NAME> --editing a secrets
+
+echo -n 'admin' | base64 --using endcoded credentials
+ ex: YWRtaW4=
+ 
+echo 'YWRtaW4=' | base64 --decode --using decoded credentials
+ ex: admin
+ 
+ reference Links--https://github.com/moziauddin/wpMysql-pvc-kubernetes 
+                  https://github.com/groovemonkey/project-based-kubernetes
+
+
 
 Ingress Commands
 ----------------
