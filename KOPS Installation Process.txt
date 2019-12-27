@@ -131,7 +131,7 @@ connect to mysql database using pod
 kubectl exec -it <pod> bash
 after login pod search for mysql credentials echo ${MYSQL_ROOT_PASSWORD/MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATA_BASE}
 >env
->mysql -uroot -p <mysql root password>
+>mysql -uroot -p <mysql root password> [or] mysql --user=root --password=$MYSQL_ROOT_PASSWORD
 >show databases;
 >use <database name>
 >show tables;
