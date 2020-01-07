@@ -79,6 +79,7 @@ kops validate cluster   (Validate Cluster)
 kubectl get nodes --show-labels
 
 
+
 storage SSD
 -----------
 kubectl get pvc (PersistentVolumeClaim)
@@ -125,6 +126,12 @@ kubectl rollout undo deployment/nginx-app  --go for previous version
 kubectl rollout status deployment/nginx-app
 
 kubectl rollout history deployment/nginx-app
+
+kubebtl get events
+
+kubectl get services --all-namespaces --sort-by=.spec.type
+
+kubectl get services --all-namespaces --sort-by=.metadata.name
 
 connect to mysql database using pod
 -----------------------------------
@@ -196,7 +203,7 @@ kubectl describe node <node name>
 
 kubectl get all --all-namespaces -- display all namespaces
 
-kubectl top pod
+kubectl top pod/nodes
 
 kubectl autoscale deployment api-gateway --cpu-percent 400 --min 1 --max 4
 
