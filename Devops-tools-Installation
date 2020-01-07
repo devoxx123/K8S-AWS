@@ -41,3 +41,23 @@ sudo chown -R ec2-user:ec2-user maven3  --Change Permissions
 
 vim ~/.bashrc  --add maven path
 
+Lanching MySQL using Docker
+---------------------------
+docker pull mysql
+
+docker run mysql:5.7
+
+docker run -d -e MYSQL_ROOT_PASSWORD=dummypassword -e MYSQL_DATABASE=todos -e MYSQL_USER=todo-user -e MYSQL_PASSWORD=dummytodos -p 3306:3306 mysql:5.7
+
+docker container list 
+
+connect to mysql using docker
+-----------------------------
+>mysqlsh
+
+>connect
+
+>connect todo-user@localhost:3306
+
+
+
