@@ -76,6 +76,8 @@ docker ps -a
 
 sudo yum remove docker
 
+docker rmi $(docker images -f dangling=true) --Remove All Docker Images on Computer
+
 docker rm $(docker ps -a -f status=exited -q)
 
 sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
@@ -83,6 +85,19 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 
 docker-compose --version
+
+Publish Docker Image to Docker Hub
+-----------------------------------
+docker login --username=<DOCKER HUB USER NAME>
+
+password: <DOCKER HUB PASSWORD>
+
+docker images ls
+
+docker tag <CONTAINER ID> <DOCKER HUB USERNAME>/<REPOSITORY NAME>  EX: docker tag ceaf9e1ebef5 hari505/user-microservice
+
+docker push <DOCKER HUB USERNAME>/<REPOSITORY NAME>   EX: docker push hari505/user-microservice
+
 
 Jenkins
 -----------
