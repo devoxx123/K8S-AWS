@@ -70,6 +70,7 @@ EX: docker run ceaf9e1ebef5 -e "SPRING_PROFILES_ACTIVE=dev" -e "server.port=8080
 Publish Docker Image to Docker Hub
 -----------------------------------
 docker login --username=<Docker Hub Username>
+
 password:<Docker Hub Password>
 
 docker tag <Image ID> <Docker Hub Username>/<Repository Name>
