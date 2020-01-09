@@ -3,6 +3,12 @@ Docker Installation
 
 sudo yum install docker 
 
+docker --version 
+
+docker info
+
+docker --help
+
 sudo service docker start/restart/stop
 
 sudo usermod -a -G docker ec2-user -----> Make Docker Not Require sudo Anymore
