@@ -3,4 +3,4 @@
 
 
 # Docker Architecture
-![docker-architecture](https://user-images.githubusercontent.com/42566418/72055633-31aab680-32f1-11ea-8d6f-7e8655b1bd85.png)
+   ![docker-architecture](https://user-images.githubusercontent.com/42566418/72055633-31aab680-32f1-11ea-8d6f-7e8655b1bd85.png)
