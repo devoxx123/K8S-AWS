@@ -67,6 +67,14 @@ docker run <CONTAINER ID> -e "<ENVIRONMENT VARIABLE NAME>=<VALUE>" -----> Pass E
 EX: docker run ceaf9e1ebef5 -e "SPRING_PROFILES_ACTIVE=dev" -e "server.port=8080"
 
 
+docker run -d -p 3306:3306 --name mysql-docker-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=polling_app 
+-e MYSQL_USER=devoxx -e MYSQL_PASSWORD=welcome_123! -v /var/lib/mysql:/var/lib/mysql mysql:latest  --With Docker Volume
+
+
+docker run -d -p 3306:3306 --name mysql-docker-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=polling_app 
+-e MYSQL_USER=devoxx -e MYSQL_PASSWORD=welcome_123! mysql:latest  -- Without Docker Volume
+
+
 Publish Docker Image to Docker Hub
 -----------------------------------
 docker login --username=<Docker Hub Username>
