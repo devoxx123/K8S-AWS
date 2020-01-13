@@ -112,5 +112,16 @@ docker network create --driver bridge <NEW NETWORK NAME> -----> Create Custom Do
 
 docker run <CONTAINER ID > --network <NAME OF CREATED NETWORK> ----->  run Docker container in a newly created custom bridge network
 
+docker create devoxx-network ---> Create a custome Docker network 
+
+docker run -d --network devoxx-network --name devoxx(host) -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATADBASE=database mysql:latest
+
+
+
+
+
+
+
+
 
 
