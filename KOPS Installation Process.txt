@@ -284,5 +284,7 @@ spec:
 
 Google reference Link------https://kubernetes.io/docs/tasks/run-application/run-stateless-application-deployment/
 Youtube reference Link---- https://www.youtube.com/watch?v=Jn3PMClvUh0
+Kubernates Architecture Overview Link--https://www.talentica.com/blogs/kubernetes-introduction-architecture-overview/
+
 
 
