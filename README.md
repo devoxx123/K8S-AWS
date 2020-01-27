@@ -9,7 +9,6 @@ Components of Kubernetes Master.
 .Scheduler
 .Controller Manager
 
-etcd – Kubernetes Architecture
 etcd is used as Kubernetes’ backing store. All cluster data is stored here. Always have a backup plan for etcd’s data for your Kubernetes cluster.
 
 # Docker Architecture
