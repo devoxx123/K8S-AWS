@@ -13,5 +13,72 @@ or additional frontends to help handle the traffic.
 .An Ingress does not expose arbitrary ports or protocols. Exposing services other than HTTP and HTTPS to the internet typically uses a 
 service of type Service.Type=NodePort or Service.Type=LoadBalancer.
 
+Types of Ingress
+----------------
+Single Service Ingress
+There are existing K8s concepts that allow you to expose a single Service.You can also do this with an Ingress by specifying a default backend with no rules.
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+spec:
+  backend:
+    serviceName: testsvc
+    servicePort: 80
+
+Simple fanout
+A fanout configuration routes traffic from a single IP address to more than one Service, based on the HTTP URI being requested.
+An Ingress allows you to keep the number of load balancers down to a minimum.For example, a setup like:
+foo.bar.com -> 178.91.123.132 -> / foo    service1:4200
+                                 / bar    service2:8080
+                                 
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: simple-fanout-example
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - path: /foo
+        backend:
+          serviceName: service1
+          servicePort: 4200
+      - path: /bar
+        backend:
+          serviceName: service2
+          servicePort: 8080
+          
+Name based virtual hosting
+Name-based virtual hosts support routing HTTP traffic to multiple host names at the same IP address.
+
+foo.bar.com --|                 |-> foo.bar.com service1:80
+              | 178.91.123.132  |
+bar.foo.com --|                 |-> bar.foo.com service2:80
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: name-virtual-host-ingress
+spec:
+  rules:
+  - host: foo.bar.com
+    http:
+      paths:
+      - backend:
+          serviceName: service1
+          servicePort: 80
+  - host: bar.foo.com
+    http:
+      paths:
+      - backend:
+          serviceName: service2
+          servicePort: 80
+          
+
 
 
