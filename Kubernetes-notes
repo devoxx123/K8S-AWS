@@ -1,8 +1,17 @@
-* There are various types of pods:
+There are various types of pods:
+-------------------------------
 ReplicaSet-- the default, is a relatively simple type. It ensures the specified number of pods are running.
 Deployment-- is a declarative way of managing pods via ReplicaSets. Includes rollback and rolling update mechanisms.
 Daemonset-- is a way of ensuring each node will run an instance of a pod. Used for cluster services, like health monitoring and log forwarding.
 StatefulSet-- is tailored to managing pods that must persist or maintain state.
+
+There are four different service types:
+---------------------------------------
+Service is responsible for enabling network access to a set of pods. Each service has a unique IP address and a DNS hostname.
+ClusterIP(default)--Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.
+NodePort--Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+LoadBalancer--Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.
+ExternalName--Exposes the Service using an arbitrary name (specified by externalName in the spec) by returning a CNAME record with the name. No proxy is used. This type requires v1.7 or higher of kube-dns.
 
 
 
