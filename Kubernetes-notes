@@ -1,5 +1,4 @@
-There are various types of pods:
-
+#There are various types of pods:
 ReplicaSet-- the default, is a relatively simple type. It ensures the specified number of pods are running.
 Deployment-- is a declarative way of managing pods via ReplicaSets. Includes rollback and rolling update mechanisms.
 Daemonset-- is a way of ensuring each node will run an instance of a pod. Used for cluster services, like health monitoring and log forwarding.
